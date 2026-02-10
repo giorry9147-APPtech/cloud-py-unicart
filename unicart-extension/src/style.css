@@ -1,0 +1,17 @@
+body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto; width: 320px; }
+.wrap { padding: 14px; background: #f9f5ff; }
+.top { display:flex; justify-content:space-between; align-items:center; margin-bottom: 10px; }
+.title { font-weight: 900; font-size: 16px; }
+.status { font-size: 12px; color: #555; max-width: 180px; text-align: right; }
+.btn { width: 100%; padding: 10px 12px; border-radius: 999px; border: 1px solid rgba(0,0,0,0.1); background: #fff; font-weight: 800; cursor:pointer; }
+.btn.primary { background: #6C3BFF; color:#fff; border: none; }
+.btn.ghost { background: transparent; }
+.divider { height: 1px; background: rgba(0,0,0,0.08); margin: 12px 0; }
+.msg { margin-top: 10px; font-size: 12px; color: #333; min-height: 16px; }
+.btn.ghost {
+  opacity: 0.9;
+}
+
+.btn.ghost:hover {
+  opacity: 1;
+}

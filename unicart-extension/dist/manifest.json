@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "UniCart",
+  "version": "0.1.0",
+  "action": {
+    "default_title": "Save to UniCart",
+    "default_popup": "popup.html"
+  },
+  "permissions": ["tabs", "storage", "identity","activeTab"],
+  "host_permissions": [
+    "<all_urls>",
+    "https://accounts.google.com/*",
+    "https://www.googleapis.com/*"
+  ],
+  "oauth2": {
+    "client_id": "75497122420-ljlne92hnr6rhg244jb6poke2t6t6j5o.apps.googleusercontent.com",
+    "scopes": ["openid", "email", "profile"]
+  }
+}
+

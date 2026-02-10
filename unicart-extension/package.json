@@ -1,0 +1,18 @@
+{
+  "name": "unicart-extension",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "firebase": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.254",
+    "typescript": "^5.0.0",
+    "vite": "^5.0.0"
+  }
+}

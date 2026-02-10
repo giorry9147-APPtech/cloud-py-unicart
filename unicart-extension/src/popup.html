@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>UniCart</title>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="top">
+        <div class="title">UniCart</div>
+        <div id="status" class="status">Not logged in</div>
+      </div>
+
+      <button id="loginBtn" class="btn primary">Login with Google</button>
+      <button id="logoutBtn" class="btn ghost" style="display:none;">Logout</button>
+      <button id="switchBtn" class="btn ghost" style="display:none;">Switch account</button>
+
+
+      <div class="divider"></div>
+
+      <button id="saveBtn" class="btn">Save current page</button>
+      <div id="msg" class="msg"></div>
+    </div>
+
+    <script type="module" src="./popup.ts"></script>
+  </body>
+</html>
