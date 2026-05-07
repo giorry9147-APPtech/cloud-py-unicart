@@ -243,7 +243,7 @@ export default function HomeScreen() {
             <Ionicons name="link-outline" size={18} color={PURPLE} style={{ marginLeft: 4, marginRight: 8 }} />
             <TextInput
               style={styles.pasteInput}
-              placeholder="Plak product link..."
+              placeholder=""
               placeholderTextColor="#B8B8B8"
               value={url}
               onChangeText={setUrl}
