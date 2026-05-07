@@ -1,0 +1,4 @@
+# Allow Expo's bundled font assets even though their path contains "node_modules"
+# (Vercel's default ignore drops node_modules everywhere; we need them inside dist/).
+!dist
+!dist/**

@@ -187,7 +187,7 @@ export default function GoalsScreen() {
       </View>
 
       <ScrollView
-        contentContainerStyle={{ paddingBottom: 120 }}
+        contentContainerStyle={{ paddingBottom: 160 }}
         showsVerticalScrollIndicator={false}
       >
         {/* Stat cards */}

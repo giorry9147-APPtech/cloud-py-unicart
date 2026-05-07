@@ -608,22 +608,15 @@ export default function WishlistScreen() {
 
           <View style={styles.cardActionRow}>
             {!!item.product_url && (
-              <TouchableOpacity onPress={() => openLink(item.product_url)} style={styles.iconBtn}>
-                <Ionicons name="open-outline" size={14} color={PURPLE} />
+              <TouchableOpacity onPress={() => openLink(item.product_url)} style={styles.cardSecondaryBtn}>
+                <Ionicons name="open-outline" size={14} color="#666" />
+                <Text style={styles.cardSecondaryText}>Bekijk</Text>
               </TouchableOpacity>
             )}
-            <TouchableOpacity onPress={() => refreshItemData(item)} style={styles.iconBtn} disabled={isRefreshing}>
-              {isRefreshing ? <ActivityIndicator size="small" /> : <Ionicons name="refresh-outline" size={14} color={PURPLE} />}
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => openSaving(item)} style={styles.iconBtn}>
-              <Ionicons name="wallet-outline" size={14} color="#B58400" />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => updateStatus(item.id, "bought")} style={styles.iconBtn}>
-              <Ionicons name="checkmark-circle-outline" size={14} color={PURPLE} />
-            </TouchableOpacity>
             <View style={{ flex: 1 }} />
-            <TouchableOpacity onPress={() => removeItem(item.id)} style={[styles.iconBtn, { backgroundColor: "rgba(255,80,80,0.10)" }]}>
-              <Ionicons name="trash-outline" size={14} color="#E04444" />
+            <TouchableOpacity onPress={() => updateStatus(item.id, "bought")} style={styles.cardPrimaryBtn}>
+              <Ionicons name="checkmark" size={14} color="#fff" />
+              <Text style={styles.cardPrimaryText}>Gekocht</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -679,7 +672,7 @@ export default function WishlistScreen() {
       <StatusBar barStyle="light-content" />
 
       <ScrollView
-        contentContainerStyle={{ paddingBottom: 120 }}
+        contentContainerStyle={{ paddingBottom: 160 }}
         showsVerticalScrollIndicator={false}
       >
         {/* Purple header */}
@@ -1233,6 +1226,18 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(108,59,255,0.06)",
     alignItems: "center", justifyContent: "center",
   },
+  cardSecondaryBtn: {
+    flexDirection: "row", alignItems: "center", gap: 5,
+    paddingVertical: 7, paddingHorizontal: 12, borderRadius: 999,
+    backgroundColor: "rgba(0,0,0,0.04)",
+  },
+  cardSecondaryText: { fontSize: 12, fontWeight: "600", color: "#444" },
+  cardPrimaryBtn: {
+    flexDirection: "row", alignItems: "center", gap: 5,
+    paddingVertical: 7, paddingHorizontal: 14, borderRadius: 999,
+    backgroundColor: "#6C3BFF",
+  },
+  cardPrimaryText: { fontSize: 12, fontWeight: "700", color: "#fff" },
 
   // Grid card
   gridCard: {

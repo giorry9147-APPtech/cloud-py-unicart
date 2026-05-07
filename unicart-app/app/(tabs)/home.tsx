@@ -207,7 +207,7 @@ export default function HomeScreen() {
       <StatusBar barStyle="light-content" />
 
       <ScrollView
-        contentContainerStyle={{ paddingBottom: 120 }}
+        contentContainerStyle={{ paddingBottom: 160 }}
         showsVerticalScrollIndicator={false}
       >
         {/* Purple header */}
