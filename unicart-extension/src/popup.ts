@@ -116,20 +116,32 @@ saveBtn.onclick = async () => {
     setMsg("Saving...");
 
     const url = await getActiveTabUrl();
-    const parsed = await parseUrl(url);
+
+    // Best-effort parse — save even if parse fails
+    let parsed: { url: string; title: string; shop: string; price: number | null; image: string; currency: string | null; domain: string } | null = null;
+    try {
+      parsed = await parseUrl(url);
+    } catch (e) {
+      console.warn("Parse failed, saving with URL only:", e);
+    }
+
+    const domain = parsed?.domain || (() => {
+      try { return new URL(url).hostname.replace(/^www\./, ""); } catch { return "unknown"; }
+    })();
 
     const idToken = await user.getIdToken();
     await saveItemToApi(idToken, {
-      title: parsed.title || parsed.url,
-      url: parsed.url,
-      shop: parsed.shop || parsed.domain,
-      price: parsed.price ?? null,
-      image: parsed.image || "",
-      domain: parsed.domain,
+      title: parsed?.title || domain,
+      url: parsed?.url ?? url,
+      shop: parsed?.shop || domain,
+      price: parsed?.price ?? null,
+      image: parsed?.image || "",
+      currency: parsed?.currency ?? null,
+      domain,
       category: null,
     });
 
-    setMsg("✅ Saved to My UniCart!");
+    setMsg(parsed ? "✅ Saved to My UniCart!" : "✅ Saved! (details loading...)");
   } catch (e: any) {
     console.error(e);
     setMsg(`❌ ${e?.message || String(e)}`);

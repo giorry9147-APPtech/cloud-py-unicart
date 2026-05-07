@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "75497122420",
+    "project_id": "unishopcart",
+    "storage_bucket": "unishopcart.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:75497122420:android:b028f2ac246757bb74ff21",
+        "android_client_info": {
+          "package_name": "com.giorryapptech.unicart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "75497122420-ou1gt8m479otvthm6co08bgptfoech44.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwvMnmZM0T0ZscXJaJBfncrbXLdvvER0Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "75497122420-6grst6ic9l82h0o3e662rkqb9446fsdd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "75497122420-hhkv3fudvsj8sku6fjpaubsavbt38hq6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "host.exp.exponent"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

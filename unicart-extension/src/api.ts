@@ -1,4 +1,6 @@
-const API_BASE = "http://localhost:3000";
+const API_BASE = (typeof import.meta !== "undefined" && (import.meta as any).env?.VITE_API_BASE)
+  ? (import.meta as any).env.VITE_API_BASE
+  : "https://unicart-web.vercel.app";
 
 
 function domainFromUrl(url: string) {
@@ -25,13 +27,16 @@ export async function parseUrl(url: string) {
   if (!res.ok) throw new Error(`Parse failed (${res.status})`);
   const data = await res.json();
 
+  const finalUrl = data.canonicalUrl || data.url || url;
+
   return {
-    url: data.url || url,
+    url: finalUrl,
     title: data.title || "",
-    shop: data.shop || "",
+    shop: "",
     price: data.price ?? null,
-    image: data.image || "",
-    domain: domainFromUrl(data.url || url),
+    image: data.imageUrl || "",
+    currency: data.currency || null,
+    domain: data.domain || domainFromUrl(finalUrl),
   };
 }
 
@@ -43,6 +48,7 @@ export async function saveItemToApi(
     shop: string;
     price: number | null;
     image: string;
+    currency: string | null;
     domain: string;
     category: string | null;
   }

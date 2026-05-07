@@ -1,0 +1,16 @@
+# Claude Code local config (per-machine, not for commit)
+.claude/
+
+# Local archive snapshots
+*.zip
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Node deps (if anything ever lands at root)
+node_modules/
+
+# Sub-projects with their own GitHub repo + own deploy pipeline
+# (kept out of the root monorepo; clone separately if needed)
+unicart-scraper/
