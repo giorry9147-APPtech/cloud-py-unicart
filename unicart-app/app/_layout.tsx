@@ -3,12 +3,18 @@ import React, { useEffect, useState } from "react";
 import { View, ActivityIndicator } from "react-native";
 import { Slot, useRouter, useSegments } from "expo-router";
 import { onAuthStateChanged } from "firebase/auth";
+import { useFonts } from "expo-font";
+import { Ionicons } from "@expo/vector-icons";
 import { auth } from "../lib/firebaseConfig";
 import { registerPushTokenForUser } from "../lib/pushNotifications";
 
 export default function RootLayout() {
   const router = useRouter();
   const segments = useSegments();
+
+  const [fontsLoaded] = useFonts({
+    ...Ionicons.font,
+  });
 
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState<any>(null);
@@ -18,7 +24,6 @@ export default function RootLayout() {
       setUser(u);
       setInitializing(false);
       if (u?.uid) {
-        // Fire-and-forget: prompt for notif permission + save Expo push token.
         registerPushTokenForUser(u.uid);
       }
     });
@@ -28,7 +33,7 @@ export default function RootLayout() {
   useEffect(() => {
     if (initializing) return;
 
-    const group = segments[0]; // "(tabs)" | "login" | "signup" | etc.
+    const group = segments[0];
     const inTabs = group === "(tabs)";
     const inAuth = group === "login" || group === "signup";
 
@@ -43,7 +48,7 @@ export default function RootLayout() {
     }
   }, [user, initializing, segments, router]);
 
-  if (initializing) {
+  if (initializing || !fontsLoaded) {
     return (
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <ActivityIndicator />
